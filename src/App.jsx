@@ -1,12 +1,23 @@
 import './App.css';
-import { useViewportSize } from './useViewportSize';
+import { useWindowScroll } from './useWindowScroll';
 
+function Demo() {
+  const [scroll, scrollTo] = useWindowScroll();
 
+  return (
+    <div>
+      <p>
+        Scroll position x: {scroll.x}, y: {scroll.y}
+      </p>
+      <button onClick={() => scrollTo({ y: 0 })}>Scroll to top</button>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header style={{ height: '2000px' }} className="App-header">
         <div>
           <Demo/>
         </div>
